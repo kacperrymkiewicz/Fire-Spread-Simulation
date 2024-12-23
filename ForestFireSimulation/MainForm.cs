@@ -7,7 +7,7 @@ namespace ForestFireSimulation
     {
         private ForestGrid _forest;
         private Timer _timer;
-        private double _spreadProbability = 1.0;
+        private double _spreadProbability = 0.6;
 
         public MainForm()
         {
@@ -76,6 +76,18 @@ namespace ForestFireSimulation
             ResetSimulation();
         }
 
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            var settingsForm = new SettingsForm(24, 40, _spreadProbability);
+            if (settingsForm.ShowDialog() == DialogResult.OK)
+            {
+                _spreadProbability = settingsForm.SpreadProbability;
+                _forest = new ForestGrid(settingsForm.GridHeight, settingsForm.GridWidth);
+                _forest.IgniteRandomTree();
+                Invalidate(); // Odświeżenie widoku
+            }
+        }
+
 
         private void StartSimulation()
         {
@@ -93,7 +105,6 @@ namespace ForestFireSimulation
             InitializeSimulation(); // Ponowne ustawienie początkowego stanu
             Invalidate(); // Odświeżenie wizualizacji
         }
-
     }
 }
 

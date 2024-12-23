@@ -27,7 +27,7 @@ namespace ForestFireSimulation
             {
                 for (int j = 0; j < _cols; j++)
                 {
-                    _grid[i, j] = new Cell(_random.NextDouble() > 0.0 ? CellState.Tree : CellState.Burned);
+                    _grid[i, j] = new Cell(_random.NextDouble() > 0.5 ? CellState.Tree : CellState.Burned);
                 }
             }
         }
