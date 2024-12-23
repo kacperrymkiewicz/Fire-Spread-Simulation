@@ -96,5 +96,8 @@ namespace ForestFireSimulation
         }
 
         public Cell[,] GetGrid() => _grid;
+        public int Width => _grid.GetLength(1);
+        public int Height => _grid.GetLength(0);
+
     }
 }

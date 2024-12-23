@@ -17,7 +17,7 @@ namespace ForestFireSimulation
             // Ustawienie domyślnych wartości
             txtGridWidth.Text = currentWidth.ToString();
             txtGridHeight.Text = currentHeight.ToString();
-            trackBarSpreadProbability.Value = (int)currentSpreadProbability * 10;
+            trackBarSpreadProbability.Value = (int)(currentSpreadProbability * 10);
         }
 
         private void btnApply_Click(object sender, EventArgs e)
@@ -26,27 +26,27 @@ namespace ForestFireSimulation
             {
                 GridWidth = int.Parse(txtGridWidth.Text);
                 GridHeight = int.Parse(txtGridHeight.Text);
-                SpreadProbability = trackBarSpreadProbability.Value / 10;
+                SpreadProbability = ((double)trackBarSpreadProbability.Value / 10);
                 TreeProbability = trackBarTreeProbability.Value / 10;
 
                 if (GridWidth <= 0 || GridHeight <= 0)
                 {
-                    MessageBox.Show("Grid size must be greater than 0.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Rozmiar siatki musi być większy od 0.", "Nieprawidłowa wartość", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                DialogResult = DialogResult.OK; // Zatwierdzenie zmian
+                DialogResult = DialogResult.OK;
                 Close();
             }
             catch (FormatException)
             {
-                MessageBox.Show("Please enter valid numeric values.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Podane wartości muszą być liczbami całkowitymi.", "Nieprawidłowy typ danych", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel; // Anulowanie zmian
+            DialogResult = DialogResult.Cancel;
             Close();
         }
 

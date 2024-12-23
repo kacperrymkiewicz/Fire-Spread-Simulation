@@ -78,7 +78,7 @@ namespace ForestFireSimulation
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            var settingsForm = new SettingsForm(24, 40, _spreadProbability);
+            var settingsForm = new SettingsForm(_forest.Width, _forest.Height, _spreadProbability);
             if (settingsForm.ShowDialog() == DialogResult.OK)
             {
                 _spreadProbability = settingsForm.SpreadProbability;

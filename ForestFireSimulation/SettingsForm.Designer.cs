@@ -34,16 +34,16 @@
             trackBarSpreadProbability = new TrackBar();
             trackBarTreeProbability = new TrackBar();
             groupBoxMapSize = new GroupBox();
-            btnCancel = new Button();
-            labelMapWidth = new Label();
             labelMapHeight = new Label();
-            groupBox1 = new GroupBox();
-            labelSpreadProbability = new Label();
+            labelMapWidth = new Label();
+            btnCancel = new Button();
+            groupBoxProbabilitySettings = new GroupBox();
             labelTreeProbability = new Label();
+            labelSpreadProbability = new Label();
             ((System.ComponentModel.ISupportInitialize)trackBarSpreadProbability).BeginInit();
             ((System.ComponentModel.ISupportInitialize)trackBarTreeProbability).BeginInit();
             groupBoxMapSize.SuspendLayout();
-            groupBox1.SuspendLayout();
+            groupBoxProbabilitySettings.SuspendLayout();
             SuspendLayout();
             // 
             // btnApply
@@ -106,15 +106,15 @@
             groupBoxMapSize.Text = "Rozmiar mapy";
             groupBoxMapSize.Enter += groupBox1_Enter;
             // 
-            // btnCancel
+            // labelMapHeight
             // 
-            btnCancel.Location = new Point(408, 400);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(94, 29);
-            btnCancel.TabIndex = 13;
-            btnCancel.Text = "Anuluj";
-            btnCancel.UseVisualStyleBackColor = true;
-            btnCancel.Click += btnCancel_Click;
+            labelMapHeight.AutoSize = true;
+            labelMapHeight.Font = new Font("Segoe UI", 9F);
+            labelMapHeight.Location = new Point(38, 100);
+            labelMapHeight.Name = "labelMapHeight";
+            labelMapHeight.Size = new Size(74, 20);
+            labelMapHeight.TabIndex = 4;
+            labelMapHeight.Text = "Wysokość";
             // 
             // labelMapWidth
             // 
@@ -126,39 +126,29 @@
             labelMapWidth.TabIndex = 3;
             labelMapWidth.Text = "Szerokość";
             // 
-            // labelMapHeight
+            // btnCancel
             // 
-            labelMapHeight.AutoSize = true;
-            labelMapHeight.Font = new Font("Segoe UI", 9F);
-            labelMapHeight.Location = new Point(38, 100);
-            labelMapHeight.Name = "labelMapHeight";
-            labelMapHeight.Size = new Size(74, 20);
-            labelMapHeight.TabIndex = 4;
-            labelMapHeight.Text = "Wysokość";
+            btnCancel.Location = new Point(408, 400);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(94, 29);
+            btnCancel.TabIndex = 13;
+            btnCancel.Text = "Anuluj";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
-            // groupBox1
+            // groupBoxProbabilitySettings
             // 
-            groupBox1.Controls.Add(labelTreeProbability);
-            groupBox1.Controls.Add(labelSpreadProbability);
-            groupBox1.Controls.Add(trackBarSpreadProbability);
-            groupBox1.Controls.Add(trackBarTreeProbability);
-            groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            groupBox1.Location = new Point(28, 201);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(736, 178);
-            groupBox1.TabIndex = 14;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Ustawienia prawdopodobieństwa";
-            // 
-            // labelSpreadProbability
-            // 
-            labelSpreadProbability.AutoSize = true;
-            labelSpreadProbability.Font = new Font("Segoe UI", 9F);
-            labelSpreadProbability.Location = new Point(27, 54);
-            labelSpreadProbability.Name = "labelSpreadProbability";
-            labelSpreadProbability.Size = new Size(176, 20);
-            labelSpreadProbability.TabIndex = 5;
-            labelSpreadProbability.Text = "Rozprzestrzenianie ognia";
+            groupBoxProbabilitySettings.Controls.Add(labelTreeProbability);
+            groupBoxProbabilitySettings.Controls.Add(labelSpreadProbability);
+            groupBoxProbabilitySettings.Controls.Add(trackBarSpreadProbability);
+            groupBoxProbabilitySettings.Controls.Add(trackBarTreeProbability);
+            groupBoxProbabilitySettings.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            groupBoxProbabilitySettings.Location = new Point(28, 201);
+            groupBoxProbabilitySettings.Name = "groupBoxProbabilitySettings";
+            groupBoxProbabilitySettings.Size = new Size(736, 178);
+            groupBoxProbabilitySettings.TabIndex = 14;
+            groupBoxProbabilitySettings.TabStop = false;
+            groupBoxProbabilitySettings.Text = "Ustawienia prawdopodobieństwa";
             // 
             // labelTreeProbability
             // 
@@ -170,12 +160,22 @@
             labelTreeProbability.TabIndex = 6;
             labelTreeProbability.Text = "Generowanie drzew";
             // 
+            // labelSpreadProbability
+            // 
+            labelSpreadProbability.AutoSize = true;
+            labelSpreadProbability.Font = new Font("Segoe UI", 9F);
+            labelSpreadProbability.Location = new Point(27, 54);
+            labelSpreadProbability.Name = "labelSpreadProbability";
+            labelSpreadProbability.Size = new Size(176, 20);
+            labelSpreadProbability.TabIndex = 5;
+            labelSpreadProbability.Text = "Rozprzestrzenianie ognia";
+            // 
             // SettingsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(groupBox1);
+            Controls.Add(groupBoxProbabilitySettings);
             Controls.Add(btnCancel);
             Controls.Add(groupBoxMapSize);
             Controls.Add(btnApply);
@@ -185,8 +185,8 @@
             ((System.ComponentModel.ISupportInitialize)trackBarTreeProbability).EndInit();
             groupBoxMapSize.ResumeLayout(false);
             groupBoxMapSize.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            groupBoxProbabilitySettings.ResumeLayout(false);
+            groupBoxProbabilitySettings.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -201,7 +201,7 @@
         private Button btnCancel;
         private Label labelMapWidth;
         private Label labelMapHeight;
-        private GroupBox groupBox1;
+        private GroupBox groupBoxProbabilitySettings;
         private Label labelTreeProbability;
         private Label labelSpreadProbability;
     }
