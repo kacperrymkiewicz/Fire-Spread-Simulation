@@ -82,13 +82,16 @@
             // 
             // MainForm
             // 
+            AcceptButton = btnStart;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnStop;
             ClientSize = new Size(1600, 800);
             Controls.Add(btnStart);
             Controls.Add(btnStop);
             Controls.Add(btnReset);
             Controls.Add(btnSettings);
+            DoubleBuffered = true;
             Name = "MainForm";
             Text = "Forest Fire Simulation";
             ResumeLayout(false);

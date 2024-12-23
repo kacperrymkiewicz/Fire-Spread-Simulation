@@ -14,10 +14,8 @@ namespace ForestFireSimulation
             InitializeComponent();
             InitializeSimulation();
             this.DoubleBuffered = true;
-            this.StartPosition = FormStartPosition.CenterScreen; // Środek ekranu
-            this.Size = Screen.PrimaryScreen.WorkingArea.Size;    // Rozmiar roboczy ekranu
-            this.Location = Screen.PrimaryScreen.WorkingArea.Location; // Początek okna
-
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void InitializeSimulation()
@@ -26,7 +24,7 @@ namespace ForestFireSimulation
             _forest.IgniteRandomTree();
 
             _timer = new Timer();
-            _timer.Interval = 1000; // 500 ms
+            _timer.Interval = 1000;
             _timer.Tick += (sender, e) => UpdateSimulation();
 
             this.Paint += (sender, e) => DrawForest(e.Graphics);
@@ -84,7 +82,8 @@ namespace ForestFireSimulation
                 _spreadProbability = settingsForm.SpreadProbability;
                 _forest = new ForestGrid(settingsForm.GridHeight, settingsForm.GridWidth);
                 _forest.IgniteRandomTree();
-                Invalidate(); // Odświeżenie widoku
+                _timer.Stop();
+                Invalidate();
             }
         }
 
@@ -101,9 +100,9 @@ namespace ForestFireSimulation
 
         private void ResetSimulation()
         {
-            _timer.Stop(); // Zatrzymanie timera
-            InitializeSimulation(); // Ponowne ustawienie początkowego stanu
-            Invalidate(); // Odświeżenie wizualizacji
+            _timer.Stop();
+            InitializeSimulation();
+            Invalidate();
         }
     }
 }

@@ -172,15 +172,20 @@
             // 
             // SettingsForm
             // 
+            AcceptButton = btnApply;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnCancel;
             ClientSize = new Size(800, 450);
             Controls.Add(groupBoxProbabilitySettings);
             Controls.Add(btnCancel);
             Controls.Add(groupBoxMapSize);
             Controls.Add(btnApply);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "SettingsForm";
-            Text = "Settings";
+            Text = "Ustawienia symulacji";
             ((System.ComponentModel.ISupportInitialize)trackBarSpreadProbability).EndInit();
             ((System.ComponentModel.ISupportInitialize)trackBarTreeProbability).EndInit();
             groupBoxMapSize.ResumeLayout(false);
