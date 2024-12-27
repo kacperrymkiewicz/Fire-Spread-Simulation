@@ -14,7 +14,6 @@ namespace ForestFireSimulation
         {
             InitializeComponent();
 
-            // Ustawienie domyślnych wartości
             txtGridWidth.Text = currentWidth.ToString();
             txtGridHeight.Text = currentHeight.ToString();
             trackBarSpreadProbability.Value = (int)(currentSpreadProbability * 10);
@@ -48,26 +47,6 @@ namespace ForestFireSimulation
         {
             DialogResult = DialogResult.Cancel;
             Close();
-        }
-
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-
-        }
-
-        private void trackBar1_Scroll_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 

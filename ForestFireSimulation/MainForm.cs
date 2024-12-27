@@ -6,7 +6,6 @@ namespace ForestFireSimulation
     public partial class MainForm : Form
     {
         private ForestGrid _forest;
-        private GridRenderer _gridRenderer;
         private Timer _timer;
         private double _spreadProbability = 0.6;
 
@@ -17,8 +16,6 @@ namespace ForestFireSimulation
             this.DoubleBuffered = true;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.WindowState = FormWindowState.Maximized;
-
-
         }
 
         private void InitializeSimulation()
@@ -62,8 +59,7 @@ namespace ForestFireSimulation
                 _forest = new ForestGrid(settingsForm.GridHeight, settingsForm.GridWidth);
                 _forest.IgniteRandomTree();
                 gridRenderer.Forest = _forest;
-                _timer.Stop();
-                gridRenderer.Invalidate();
+                StopSimulation();
             }
         }
 
