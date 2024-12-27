@@ -8,6 +8,7 @@ namespace ForestFireSimulation
         private ForestGrid _forest;
         private Timer _timer;
         private double _spreadProbability = 0.6;
+        private double _treeProbability = 0.5;
 
         public MainForm()
         {
@@ -52,11 +53,12 @@ namespace ForestFireSimulation
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            var settingsForm = new SettingsForm(_forest.Width, _forest.Height, _spreadProbability);
+            var settingsForm = new SettingsForm(_forest.Width, _forest.Height, _spreadProbability, _treeProbability);
             if (settingsForm.ShowDialog() == DialogResult.OK)
             {
                 _spreadProbability = settingsForm.SpreadProbability;
-                _forest = new ForestGrid(settingsForm.GridHeight, settingsForm.GridWidth);
+                _treeProbability = settingsForm.TreeProbability;
+                _forest = new ForestGrid(settingsForm.GridHeight, settingsForm.GridWidth, settingsForm.TreeProbability);
                 _forest.IgniteRandomTree();
                 gridRenderer.Forest = _forest;
                 StopSimulation();

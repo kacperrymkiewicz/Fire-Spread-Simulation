@@ -10,13 +10,14 @@ namespace ForestFireSimulation
         public double SpreadProbability { get; private set; }
         public double TreeProbability { get; private set; }
 
-        public SettingsForm(int currentWidth, int currentHeight, double currentSpreadProbability)
+        public SettingsForm(int currentWidth, int currentHeight, double currentSpreadProbability, double currentTreeProbability)
         {
             InitializeComponent();
 
             txtGridWidth.Text = currentWidth.ToString();
             txtGridHeight.Text = currentHeight.ToString();
             trackBarSpreadProbability.Value = (int)(currentSpreadProbability * 10);
+            trackBarTreeProbability.Value = (int)(currentTreeProbability * 10);
         }
 
         private void btnApply_Click(object sender, EventArgs e)
@@ -26,7 +27,7 @@ namespace ForestFireSimulation
                 GridWidth = int.Parse(txtGridWidth.Text);
                 GridHeight = int.Parse(txtGridHeight.Text);
                 SpreadProbability = ((double)trackBarSpreadProbability.Value / 10);
-                TreeProbability = trackBarTreeProbability.Value / 10;
+                TreeProbability = ((double)trackBarTreeProbability.Value / 10);
 
                 if (GridWidth <= 0 || GridHeight <= 0)
                 {

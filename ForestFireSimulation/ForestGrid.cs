@@ -13,21 +13,21 @@ namespace ForestFireSimulation
         private readonly Cell[,] _grid;
         private readonly Random _random = new Random();
 
-        public ForestGrid(int rows, int cols)
+        public ForestGrid(int rows, int cols, double treeProbability = 0.5)
         {
             _rows = rows;
             _cols = cols;
             _grid = new Cell[rows, cols];
-            InitializeGrid();
+            InitializeGrid(treeProbability);
         }
 
-        private void InitializeGrid()
+        private void InitializeGrid(double treeSpawnProbability)
         {
             for (int i = 0; i < _rows; i++)
             {
                 for (int j = 0; j < _cols; j++)
                 {
-                    _grid[i, j] = new Cell(_random.NextDouble() > 0.5 ? CellState.Tree : CellState.Burned);
+                    _grid[i, j] = new Cell(_random.NextDouble() < treeSpawnProbability ? CellState.Tree : CellState.Burned);
                 }
             }
         }

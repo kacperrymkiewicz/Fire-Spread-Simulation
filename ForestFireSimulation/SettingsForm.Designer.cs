@@ -81,15 +81,15 @@
             trackBarSpreadProbability.Size = new Size(295, 56);
             trackBarSpreadProbability.TabIndex = 3;
             trackBarSpreadProbability.Value = 1;
-            trackBarSpreadProbability.Scroll += trackBar1_Scroll;
             // 
             // trackBarTreeProbability
             // 
             trackBarTreeProbability.Location = new Point(236, 116);
+            trackBarTreeProbability.Minimum = 1;
             trackBarTreeProbability.Name = "trackBarTreeProbability";
             trackBarTreeProbability.Size = new Size(296, 56);
             trackBarTreeProbability.TabIndex = 4;
-            trackBarTreeProbability.Scroll += trackBar1_Scroll_1;
+            trackBarTreeProbability.Value = 1;
             // 
             // groupBoxMapSize
             // 
@@ -104,7 +104,6 @@
             groupBoxMapSize.TabIndex = 12;
             groupBoxMapSize.TabStop = false;
             groupBoxMapSize.Text = "Rozmiar mapy";
-            groupBoxMapSize.Enter += groupBox1_Enter;
             // 
             // labelMapHeight
             // 
