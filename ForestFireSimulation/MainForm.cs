@@ -34,6 +34,11 @@ namespace ForestFireSimulation
         {
             _forest.Update(_spreadProbability);
             gridRenderer.Invalidate();
+            if (!_forest.HasBurningTrees())
+            {
+                StopSimulation();
+                MessageBox.Show("Symulacja zakończona: wszystkie drzewa spłonęły.", "Koniec symulacji", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)

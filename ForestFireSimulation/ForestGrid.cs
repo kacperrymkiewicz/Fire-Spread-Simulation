@@ -95,6 +95,21 @@ namespace ForestFireSimulation
             return false;
         }
 
+        public bool HasBurningTrees()
+        {
+            for (int i = 0; i < _rows; i++)
+            {
+                for (int j = 0; j < _cols; j++)
+                {
+                    if (_grid[i, j].State == CellState.Burning)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         public Cell[,] GetGrid() => _grid;
         public int Width => _grid.GetLength(1);
         public int Height => _grid.GetLength(0);
