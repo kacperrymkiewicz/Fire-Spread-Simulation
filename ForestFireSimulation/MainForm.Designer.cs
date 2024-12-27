@@ -38,11 +38,14 @@
             btnStop = new Button();
             btnReset = new Button();
             btnSettings = new Button();
+            gridRenderer = new GridRenderer();
+            menuPanel = new Panel();
+            menuPanel.SuspendLayout();
             SuspendLayout();
             // 
             // btnStart
             // 
-            btnStart.Location = new Point(10, 10);
+            btnStart.Location = new Point(40, 12);
             btnStart.Name = "btnStart";
             btnStart.Size = new Size(75, 30);
             btnStart.TabIndex = 0;
@@ -52,7 +55,7 @@
             // 
             // btnStop
             // 
-            btnStop.Location = new Point(100, 10);
+            btnStop.Location = new Point(142, 12);
             btnStop.Name = "btnStop";
             btnStop.Size = new Size(75, 30);
             btnStop.TabIndex = 1;
@@ -62,7 +65,7 @@
             // 
             // btnReset
             // 
-            btnReset.Location = new Point(190, 10);
+            btnReset.Location = new Point(246, 12);
             btnReset.Name = "btnReset";
             btnReset.Size = new Size(75, 30);
             btnReset.TabIndex = 2;
@@ -72,13 +75,35 @@
             // 
             // btnSettings
             // 
-            btnSettings.Location = new Point(280, 10);
+            btnSettings.Location = new Point(350, 12);
             btnSettings.Name = "btnSettings";
             btnSettings.Size = new Size(166, 30);
             btnSettings.TabIndex = 3;
             btnSettings.Text = "Ustawienia symulacji";
             btnSettings.UseVisualStyleBackColor = true;
             btnSettings.Click += btnSettings_Click;
+            // 
+            // gridRenderer
+            // 
+            gridRenderer.Dock = DockStyle.Fill;
+            gridRenderer.Forest = null;
+            gridRenderer.Location = new Point(0, 50);
+            gridRenderer.Name = "gridRenderer";
+            gridRenderer.Size = new Size(1600, 750);
+            gridRenderer.TabIndex = 4;
+            gridRenderer.Text = "gridRenderer";
+            // 
+            // menuPanel
+            // 
+            menuPanel.Controls.Add(btnSettings);
+            menuPanel.Controls.Add(btnReset);
+            menuPanel.Controls.Add(btnStart);
+            menuPanel.Controls.Add(btnStop);
+            menuPanel.Dock = DockStyle.Top;
+            menuPanel.Location = new Point(0, 0);
+            menuPanel.Name = "menuPanel";
+            menuPanel.Size = new Size(1600, 50);
+            menuPanel.TabIndex = 5;
             // 
             // MainForm
             // 
@@ -87,16 +112,18 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnStop;
             ClientSize = new Size(1600, 800);
-            Controls.Add(btnStart);
-            Controls.Add(btnStop);
-            Controls.Add(btnReset);
-            Controls.Add(btnSettings);
+            Controls.Add(gridRenderer);
+            Controls.Add(menuPanel);
             DoubleBuffered = true;
             Name = "MainForm";
             Text = "Forest Fire Simulation";
+            menuPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
+
+        private GridRenderer gridRenderer;
+        private Panel menuPanel;
     }
 }

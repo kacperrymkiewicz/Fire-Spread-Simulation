@@ -6,6 +6,7 @@ namespace ForestFireSimulation
     public partial class MainForm : Form
     {
         private ForestGrid _forest;
+        private GridRenderer _gridRenderer;
         private Timer _timer;
         private double _spreadProbability = 0.6;
 
@@ -16,47 +17,25 @@ namespace ForestFireSimulation
             this.DoubleBuffered = true;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.WindowState = FormWindowState.Maximized;
+
+
         }
 
         private void InitializeSimulation()
         {
             _forest = new ForestGrid(20, 40);
             _forest.IgniteRandomTree();
+            gridRenderer.Forest = _forest;
 
             _timer = new Timer();
             _timer.Interval = 1000;
             _timer.Tick += (sender, e) => UpdateSimulation();
-
-            this.Paint += (sender, e) => DrawForest(e.Graphics);
         }
 
         private void UpdateSimulation()
         {
             _forest.Update(_spreadProbability);
-            Invalidate();
-        }
-
-        private void DrawForest(Graphics graphics)
-        {
-            var grid = _forest.GetGrid();
-            int cellSize = 40;
-
-            for (int i = 0; i < grid.GetLength(0); i++)
-            {
-                for (int j = 0; j < grid.GetLength(1); j++)
-                {
-                    Brush brush = grid[i, j].State switch
-                    {
-                        CellState.Tree => Brushes.Green,
-                        CellState.Burning => Brushes.Red,
-                        CellState.Burned => Brushes.Black,
-                        _ => Brushes.Gray,
-                    };
-
-                    graphics.FillRectangle(brush, j * cellSize, i * cellSize, cellSize, cellSize);
-                    graphics.DrawRectangle(Pens.White, j * cellSize, i * cellSize, cellSize, cellSize);
-                }
-            }
+            gridRenderer.Invalidate();
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -82,8 +61,9 @@ namespace ForestFireSimulation
                 _spreadProbability = settingsForm.SpreadProbability;
                 _forest = new ForestGrid(settingsForm.GridHeight, settingsForm.GridWidth);
                 _forest.IgniteRandomTree();
+                gridRenderer.Forest = _forest;
                 _timer.Stop();
-                Invalidate();
+                gridRenderer.Invalidate();
             }
         }
 
@@ -102,7 +82,7 @@ namespace ForestFireSimulation
         {
             _timer.Stop();
             InitializeSimulation();
-            Invalidate();
+            gridRenderer.Invalidate();
         }
     }
 }
