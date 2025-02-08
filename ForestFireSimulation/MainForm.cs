@@ -37,7 +37,7 @@ namespace ForestFireSimulation
             if (!_forest.HasBurningTrees())
             {
                 StopSimulation();
-                MessageBox.Show("Symulacja zakończona: wszystkie drzewa spłonęły.", "Koniec symulacji", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Simulation finished: all trees have burned down.", "End of simulation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

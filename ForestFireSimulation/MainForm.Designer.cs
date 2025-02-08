@@ -77,9 +77,10 @@
             // 
             btnSettings.Location = new Point(350, 12);
             btnSettings.Name = "btnSettings";
+            btnSettings.RightToLeft = RightToLeft.No;
             btnSettings.Size = new Size(166, 30);
             btnSettings.TabIndex = 3;
-            btnSettings.Text = "Ustawienia symulacji";
+            btnSettings.Text = "Simulation settings";
             btnSettings.UseVisualStyleBackColor = true;
             btnSettings.Click += btnSettings_Click;
             // 

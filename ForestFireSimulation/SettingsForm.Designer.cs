@@ -52,7 +52,7 @@
             btnApply.Name = "btnApply";
             btnApply.Size = new Size(94, 29);
             btnApply.TabIndex = 0;
-            btnApply.Text = "Zapisz";
+            btnApply.Text = "Save";
             btnApply.UseVisualStyleBackColor = true;
             btnApply.Click += btnApply_Click;
             // 
@@ -103,7 +103,8 @@
             groupBoxMapSize.Size = new Size(736, 151);
             groupBoxMapSize.TabIndex = 12;
             groupBoxMapSize.TabStop = false;
-            groupBoxMapSize.Text = "Rozmiar mapy";
+            groupBoxMapSize.Text = "Map size";
+            groupBoxMapSize.Enter += groupBoxMapSize_Enter;
             // 
             // labelMapHeight
             // 
@@ -111,9 +112,9 @@
             labelMapHeight.Font = new Font("Segoe UI", 9F);
             labelMapHeight.Location = new Point(38, 100);
             labelMapHeight.Name = "labelMapHeight";
-            labelMapHeight.Size = new Size(74, 20);
+            labelMapHeight.Size = new Size(54, 20);
             labelMapHeight.TabIndex = 4;
-            labelMapHeight.Text = "Wysokość";
+            labelMapHeight.Text = "Height";
             // 
             // labelMapWidth
             // 
@@ -121,9 +122,9 @@
             labelMapWidth.Font = new Font("Segoe UI", 9F);
             labelMapWidth.Location = new Point(37, 50);
             labelMapWidth.Name = "labelMapWidth";
-            labelMapWidth.Size = new Size(75, 20);
+            labelMapWidth.Size = new Size(49, 20);
             labelMapWidth.TabIndex = 3;
-            labelMapWidth.Text = "Szerokość";
+            labelMapWidth.Text = "Width";
             // 
             // btnCancel
             // 
@@ -131,7 +132,7 @@
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(94, 29);
             btnCancel.TabIndex = 13;
-            btnCancel.Text = "Anuluj";
+            btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
             // 
@@ -147,7 +148,7 @@
             groupBoxProbabilitySettings.Size = new Size(736, 178);
             groupBoxProbabilitySettings.TabIndex = 14;
             groupBoxProbabilitySettings.TabStop = false;
-            groupBoxProbabilitySettings.Text = "Ustawienia prawdopodobieństwa";
+            groupBoxProbabilitySettings.Text = "Probability settings";
             // 
             // labelTreeProbability
             // 
@@ -155,9 +156,9 @@
             labelTreeProbability.Font = new Font("Segoe UI", 9F);
             labelTreeProbability.Location = new Point(27, 116);
             labelTreeProbability.Name = "labelTreeProbability";
-            labelTreeProbability.Size = new Size(140, 20);
+            labelTreeProbability.Size = new Size(113, 20);
             labelTreeProbability.TabIndex = 6;
-            labelTreeProbability.Text = "Generowanie drzew";
+            labelTreeProbability.Text = "Tree generation";
             // 
             // labelSpreadProbability
             // 
@@ -165,9 +166,9 @@
             labelSpreadProbability.Font = new Font("Segoe UI", 9F);
             labelSpreadProbability.Location = new Point(27, 54);
             labelSpreadProbability.Name = "labelSpreadProbability";
-            labelSpreadProbability.Size = new Size(176, 20);
+            labelSpreadProbability.Size = new Size(82, 20);
             labelSpreadProbability.TabIndex = 5;
-            labelSpreadProbability.Text = "Rozprzestrzenianie ognia";
+            labelSpreadProbability.Text = "Fire spread";
             // 
             // SettingsForm
             // 
@@ -184,7 +185,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "SettingsForm";
-            Text = "Ustawienia symulacji";
+            Text = "Simulation settings";
             ((System.ComponentModel.ISupportInitialize)trackBarSpreadProbability).EndInit();
             ((System.ComponentModel.ISupportInitialize)trackBarTreeProbability).EndInit();
             groupBoxMapSize.ResumeLayout(false);

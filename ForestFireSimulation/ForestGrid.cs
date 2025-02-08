@@ -50,7 +50,6 @@ namespace ForestFireSimulation
         {
             var newGrid = new Cell[_rows, _cols];
 
-            // Skopiuj obecny stan do nowej siatki
             for (int i = 0; i < _rows; i++)
             {
                 for (int j = 0; j < _cols; j++)
@@ -59,7 +58,6 @@ namespace ForestFireSimulation
                 }
             }
 
-            // Aktualizacja stanu w nowej siatce
             for (int i = 0; i < _rows; i++)
             {
                 for (int j = 0; j < _cols; j++)
@@ -75,7 +73,6 @@ namespace ForestFireSimulation
                 }
             }
 
-            // Przepisanie nowego stanu do głównej siatki
             Array.Copy(newGrid, _grid, _grid.Length);
         }
 

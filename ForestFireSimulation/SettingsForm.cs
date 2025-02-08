@@ -31,7 +31,8 @@ namespace ForestFireSimulation
 
                 if (GridWidth <= 0 || GridHeight <= 0)
                 {
-                    MessageBox.Show("Rozmiar siatki musi być większy od 0.", "Nieprawidłowa wartość", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Grid size must be greater than 0.", "Invalid value", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                     return;
                 }
 
@@ -48,6 +49,11 @@ namespace ForestFireSimulation
         {
             DialogResult = DialogResult.Cancel;
             Close();
+        }
+
+        private void groupBoxMapSize_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 
